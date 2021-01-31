@@ -10,7 +10,11 @@ class User_model extends CI_model
 			redirect(base_url('login?redirect_to=' . $curent_url));
 		} else {
 			if ($this->uri->rsegments[2]  == 'login') {
-				$url = 'dashboard/main_page';
+				if (is_admin()) {
+					$url = 'dashboard/main_page';
+				} elseif (is_member()) {
+					$url = 'member/main_page';
+				}
 				redirect($url);
 			}
 			if (!empty($_COOKIE[base_url() . '_username'])) {
@@ -53,24 +57,32 @@ class User_model extends CI_model
 					$msg = ['status' => 'danger', 'msg' => 'Incorrect password'];
 				} else {
 					$url = @$_GET['redirect_to'];
-					if (!empty($url)) {
-						$url = urldecode($url);
-					} else {
-						$url = base_url('dashboard/main_page');
-					}
 					$tmp_role = $this->role_all();
 					$role = [];
 					if (!empty($tmp_role)) {
 						foreach ($tmp_role as $key => $value) {
-							$role[$value['id']] = $value['title'];
+							$role[$value['id']] = $value['level'];
 						}
 					}
 
 					$user_role = $this->db->get_where('user_has_role', ['user_id' => $user['id']])->result_array();
 					foreach ($user_role as $key => $value) {
-						$user['role'][] = ['id' => $value['user_role_id'], 'title' => $role[$value['user_role_id']]];
+						$user['role'][] = ['id' => $value['user_role_id'], 'level' => $role[$value['user_role_id']]];
 					}
 					$this->session->set_userdata(str_replace('/', '_', base_url() . '_logged_in'), $user);
+					if (!empty($url)) {
+						if (is_admin()) {
+							$url = urldecode($url);
+						} elseif (is_member()) {
+							$url = base_url('member/main_page');
+						}
+					} else {
+						if (is_admin()) {
+							$url = base_url('dashboard/main_page');
+						} elseif (is_member()) {
+							$url = base_url('member/main_page');
+						}
+					}
 					redirect($url);
 				}
 			} else {

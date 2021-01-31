@@ -1,4 +1,4 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 
 <!-- Navbar -->
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -17,4 +17,4 @@
     </li>
   </ul>
 </nav>
-    <!-- /.navbar -->
+<!-- /.navbar -->

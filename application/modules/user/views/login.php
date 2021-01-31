@@ -8,6 +8,7 @@
   <title>Cooperative TJBPS | Login</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="<?php echo base_url(); ?>assets/images/tjbPS.png">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/vendor/fontawesome-free/css/all.min.css">
@@ -21,12 +22,12 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url(<?php echo base_url('assets/images/web-page-bg.jpg') ?>); object-fit: cover; background-position: center; background-repeat: no-repeat;">
   <div class="login-box">
     <div class="login-logo">
-      <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/images/tjbPS.png" style="width: 100px" alt="AdminLTE Logo">`</a>
+      <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/images/tjbPS.png" style="width: 100px; str" alt="AdminLTE Logo"></a>
       <br>
-      <small>Cooperative TJBPS</small>
+      <small style="color: white;">Cooperative TJBPS</small>
     </div>
     <!-- /.login-logo -->
     <div class="card">

@@ -15,6 +15,7 @@
                             <th>Employees</th>
                             <th>Email</th>
                             <th>Amount of money</th>
+                            <th>Entered data</th>
                             <th>Status</th>
                             <th>Date</th>
                             <th></th>
@@ -26,6 +27,7 @@
                             <th>Employees</th>
                             <th>Email</th>
                             <th>Amount of money</th>
+                            <th>Entered data</th>
                             <th>Status</th>
                             <th>Date</th>
                             <th></th>
@@ -40,6 +42,7 @@
                                     <td><?php echo $value['customer'] ?></td>
                                     <td><?php echo $value['email'] ?></td>
                                     <td><?php echo currency($value['total_money']) ?></td>
+                                    <td><?php echo $value['entered'] ?></td>
                                     <td>
                                         <?php
                                         if ($value['status'] == 1) {

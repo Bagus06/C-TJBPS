@@ -2,7 +2,12 @@
 
 function is_admin()
 {
-	return check_role('admin');
+	return check_role(1);
+}
+
+function is_member()
+{
+	return check_role(2);
 }
 
 function is_root()
@@ -20,14 +25,14 @@ function get_user()
 
 function check_role($role = '')
 {
-	$output = false;
+	$output = FALSE;
 	if (!empty($role)) {
 		$link = str_replace('/', '_', base_url());
 		$user = $_SESSION[$link . '_logged_in']['role'];
 		$output = false;
 		foreach ($user as $key => $value) {
-			if ($value['title'] == $role) {
-				$output = true;
+			if ($value['level'] == $role) {
+				$output = TRUE;
 			}
 		}
 	}

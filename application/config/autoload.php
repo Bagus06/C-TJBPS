@@ -47,4 +47,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('user/user_model');
+$autoload['model'] = array('user/user_model', 'account_mutation/account_mutation_model');
